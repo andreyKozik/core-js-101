@@ -95,8 +95,8 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  return !!(a + b > c && c + b > a && a + c > b);
 }
 
 
@@ -361,17 +361,7 @@ function isBracketsBalanced(/* str */) {
  *    365, 10 => '365'
  */
 function toNaryString(z, n) {
-  if (n === 10) return z;
-  let num = z;
-  let number = '';
-  while (num >= n) {
-    const a = num % n;
-    number += a;
-    num = (num - a) / n;
-  }
-  number += num;
-  number = number.split('').reverse().join('');
-  return +number;
+  return z.toString(n);
 }
 
 
