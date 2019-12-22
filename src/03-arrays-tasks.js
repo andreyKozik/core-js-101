@@ -303,8 +303,8 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  return arr.reduce((a, b, c) => a.concat(new Array(c + 1).fill(b)), []);
 }
 
 
@@ -364,29 +364,11 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
-  // const array = [];
-  // const array1 = [];
-  // const obj = {
-  //   zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9,
-  // };
-  // arr.map((a) => {
-  //   for (const key in obj) {
-  //     if (key === a) {
-  //       array.push(obj[key]);
-  //     }
-  //   }
-  // });
-  // array = array.sort(() => -1);
-  // array.map((a) => {
-  //   for (const key in obj) {
-  //     if (obj[key] === a) {
-  //       array1.push(key);
-  //     }
-  //   }
-  // });
-  // return array1;
+function sortDigitNamesByNumericOrder(arr) {
+  const obj = {
+    zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9,
+  };
+  return arr.sort((a, b) => obj[a] - obj[b]);
 }
 
 /**
@@ -493,8 +475,23 @@ function toStringList(a) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  return arr.sort((a, b) => {
+    if (a.country < b.country) {
+      return -1;
+    }
+    if (a.country > b.country) {
+      return 1;
+    }
+
+    if (a.city < b.city) {
+      return -1;
+    }
+    if (a.city > b.city) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 /**

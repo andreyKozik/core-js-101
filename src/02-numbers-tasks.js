@@ -71,8 +71,8 @@ function getAverage(a, b) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
 /**
@@ -234,18 +234,8 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-  // let a = 0;
-  // if (typeof (value - def) === 'number') {
-  //   if (typeof value === 'string') {
-  //     a = 0;
-  //   }
-  //   a = (value - def);
-  // } if (value instanceof Number) {
-  //   a = (value - def);
-  // }
-  // return a;
+function toNumber(value, def) {
+  return +value ? +value : def;
 }
 
 module.exports = {
