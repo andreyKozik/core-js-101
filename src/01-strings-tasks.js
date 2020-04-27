@@ -34,8 +34,8 @@ function concatenateStrings(v1, v2) {
  *   'b'     => 1
  *   ''      => 0
  */
-function getStringLength(v1) {
-  return v1.length;
+function getStringLength(v2) {
+  return v2.length;
 }
 
 /**
